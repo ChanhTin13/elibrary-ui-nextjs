@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';  
 import styles from './Action.module.scss';
-import PopperWrapper from '@/components/Popper';
+import PopperWrapper from '@/components/popper';
 import ActionItem from './ActionItem';
 
 const cx = classNames.bind(styles);

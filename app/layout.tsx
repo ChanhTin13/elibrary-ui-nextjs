@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import 'antd/dist/reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/globals.scss'; 
+import '../styles/globals.scss';
 import { Providers } from './providers';
 import { SideBarProvider } from '@/context/sideBarContext';
+import StyledComponentsRegistry from '@/lib/antd.registry'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,9 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <SideBarProvider>
-                    <Providers>{children}</Providers>{' '}
+                    <StyledComponentsRegistry>
+                        <Providers>{children}</Providers>{' '}
+                    </StyledComponentsRegistry>
                 </SideBarProvider>
             </body>
         </html>
