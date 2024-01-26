@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'; 
 import styles from './Action.module.scss';
-import Button from '@/components/Button/Button';
+import Button from '@/components/button';
 
 const cx = classNames.bind(styles);
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import 'antd/dist/reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './globals.css';
+import '../styles/globals.scss'; 
 import { Providers } from './providers';
 import { SideBarProvider } from '@/context/sideBarContext';
 

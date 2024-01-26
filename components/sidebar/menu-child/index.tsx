@@ -24,7 +24,7 @@ const MenuChild: React.FC<MenuChildProps> = ({ code }) => {
                             {item.child.map((child, index) => (
                                 <li key={index} className={cx('group-child')}>
                                     <Link href={child.action} className={cx('pdtb13')}>
-                                        <span class="button_title__6gITv">{child.name}</span>
+                                        <span className="button_title__6gITv">{child.name}</span>
                                     </Link>
                                 </li>
                             ))}
