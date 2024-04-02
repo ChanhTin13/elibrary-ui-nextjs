@@ -4,8 +4,7 @@ import { Inter } from 'next/font/google';
 import 'antd/dist/reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.scss';
-import { Providers } from './providers';
-import { SideBarProvider } from '@/context/sideBarContext';
+import { Providers } from './providers'; 
 import StyledComponentsRegistry from '@/lib/antd.registry'
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,12 +21,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <SideBarProvider>
+            <body className={inter.className}> 
                     <StyledComponentsRegistry>
                         <Providers>{children}</Providers>{' '}
-                    </StyledComponentsRegistry>
-                </SideBarProvider>
+                    </StyledComponentsRegistry> 
             </body>
         </html>
     );

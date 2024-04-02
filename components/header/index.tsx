@@ -1,30 +1,26 @@
 'use client';
-import React, { useContext } from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames/bind';
-import styles from '@/styles/components/header.module.scss';
-import { SideBarContext } from '@/context/sideBarContext';
+import styles from '@/styles/components/header.module.scss'; 
 import { CloseSidebarIcon, OpenSidebarIcon } from '../Icons';
 import UserAction from './userAction';
 import { MENU_ITEMS } from '@/lib/data';
 import Image from '../images';
-import images from '@/public/images';
-import { log } from 'console';
+import images from '@/public/images'; 
 
 const cx = classNames.bind(styles);
-function Header() {
-    const context = React.useContext(SideBarContext);
-    const { isOpen, handleSideBar } = context;
+function Header({isOpen,handleSideBar}:{
+	isOpen: boolean;
+	handleSideBar: Function;}) { 
 
     return (
         <header className={cx('header')}>
             <div className={cx('header-inner', isOpen ? '' : 'inner-max-width')}>
                 <div className={cx('icon-close-open-sidebar')}>
                     {/* handle click */}
-                    <div className={cx('icon-action')} onClick={handleSideBar}>
+                    <div className={cx('icon-action')} onClick={()=>handleSideBar()}>
                         <span>{isOpen ? <CloseSidebarIcon /> : <OpenSidebarIcon />}</span>
                     </div>
                 </div>

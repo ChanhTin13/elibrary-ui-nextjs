@@ -1,7 +1,6 @@
 'use client';
-import React from 'react';
-import classNames from 'classnames/bind';
-import { SideBarContext } from '@/context/sideBarContext';
+import React, { useState } from 'react';
+import classNames from 'classnames/bind'; 
 import Sidebar from '@/components/sidebar';
 import Header from '@/components/header';
 import styles from '@/styles/components/defaultLayout.module.scss';
@@ -13,11 +12,18 @@ export function Providers({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const { isOpen } = React.useContext(SideBarContext);
+	const [isOpen, setIsOpen] = useState(true);
+	const handleSideBar = () => {
+		if (isOpen) {
+			setIsOpen(false);
+		} else {
+			setIsOpen(true);
+		}
+	};
     return (
         <div className={cx('wrapper')}>
-            <Header />
-            <Sidebar />
+            <Header isOpen={isOpen} handleSideBar={handleSideBar}/>
+            <Sidebar isOpen={isOpen} />
             <div className={cx('right-content', !isOpen ? '' : 'content-max-width')}>
                 <div className={cx('main-content')}>{children}</div>
             </div>

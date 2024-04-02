@@ -1,22 +1,19 @@
 'use client';
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import Tippy from '@tippyjs/react/headless'; 
+import Tippy from '@tippyjs/react/headless';
 import PopperWrapper from '../popper';
 import images from '@/public/images';
 import MenuChild from './menu-child';
-import { navigation } from '@/lib/data';
-import { SideBarContext } from '@/context/sideBarContext'; 
+import { navigation } from '@/lib/data'; 
 import styles from '@/styles/components/sidebar.module.scss';
 import Image from '../images';
 
 const cx = classNames.bind(styles);
 
-function Sidebar() {
+function Sidebar({ isOpen }: { isOpen: boolean }) {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [menu, setMenu] = useState<{ activeNum: number; code: string }>({ activeNum: 0, code: 'home' });
-    const context = React.useContext(SideBarContext);
-    const { isOpen } = context;
 
     const handleIconHover = (index: number) => {
         setHoveredIndex(index);
