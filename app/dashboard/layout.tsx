@@ -7,7 +7,7 @@ import styles from '@/styles/components/defaultLayout.module.scss';
 
 const cx = classNames.bind(styles);
 
-export function Providers({
+export default function DashboardLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
