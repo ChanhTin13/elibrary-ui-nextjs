@@ -1,8 +1,10 @@
+import 'antd/dist/reset.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import 'antd/dist/reset.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
 import '../styles/globals.scss'; 
 import StyledComponentsRegistry from '@/lib/antd.registry'
 
@@ -24,6 +26,19 @@ export default function RootLayout({
                     <StyledComponentsRegistry>
                         {children} 
                     </StyledComponentsRegistry> 
+                    
+            <ToastContainer
+                position="top-right"
+                limit={3}
+                autoClose={2500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             </body>
         </html>
     );

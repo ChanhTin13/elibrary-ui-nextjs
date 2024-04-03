@@ -12,7 +12,7 @@ export default function DashboardLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 	const handleSideBar = () => {
 		if (isOpen) {
 			setIsOpen(false);

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 import { login } from '@/api/auth/auth';
 
 function Login() {
@@ -21,7 +22,7 @@ function Login() {
 
             if (response.status === 200) {
                 // Lưu token đăng nhập vào localStorage hoặc sessionStorage
-                const { token, refreshToken, refreshTokenExpires } = response.data; 
+                const { token, refreshToken, refreshTokenExpires } = response.data;
                 const StorageData = {
                     theRefresh: {
                         refreshToken,
@@ -30,13 +31,13 @@ function Login() {
                     token: token,
                 };
                 localStorage.setItem('MyStorageData', JSON.stringify(StorageData));
+                // thông báo
+                toast.success('Đăng nhập thành công', { position: 'top-right' });
                 // Chuyển hướng đến trang dashboard
                 router.push('/dashboard');
             }
-        } catch (error) {
-            // Xử lý lỗi nếu có
-            console.error('Error logging in:', error);
-            alert('Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại sau.');
+        } catch (error) { 
+            toast.error('Vui lòng kiểm tra lại thông tin đăng nhập!', { position: 'top-right' });
         } finally {
             setIsLoading(false);
         }

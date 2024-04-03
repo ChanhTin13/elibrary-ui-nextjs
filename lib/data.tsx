@@ -28,11 +28,11 @@ export const MENU_CHILD = [
         child: [
             {
                 name: 'Thống kê',
-                action: '/statistic',
+                action: '/dashboard/statistic',
             },
             {
                 name: 'Truyền thông',
-                action: '/',
+                action: '/dashboard',
             },
         ],
     },
